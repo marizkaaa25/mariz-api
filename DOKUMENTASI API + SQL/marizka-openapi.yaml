@@ -1,0 +1,338 @@
+openapi: 3.0.0
+info:
+  title: Task Management - marizka
+  description: >-
+    Berisi contoh dokumentasi API task management.
+
+
+    Oleh : Marizka Maulidina - Full Stack Web Development 1
+
+
+    Studi Independen Bersertifikat
+
+
+    PT. Arkatama Multi Solusindo
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://example.com/taskmanagement
+  variables: {}
+paths:
+  /category:
+    get:
+      tags:
+      - Category
+      summary: get all categories
+      operationId: getallcategories
+      parameters: []
+      responses:
+        '200':
+          description: Berhasil menampilkan data task_categories
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '404':
+          description: Data tidak ditemukan
+      deprecated: false
+    post:
+      tags:
+      - Category
+      summary: post categories
+      operationId: postcategories
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - name
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: team 7
+        required: false
+      responses:
+        '200':
+          description: Berhasil menambahkan data kategori
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '502':
+          description: Gagal menambahkan data kategori
+      deprecated: false
+  /category/{id}:  
+    put:
+      tags:
+      - Category
+      summary: put categories by id
+      operationId: putcategoriesbyid
+      parameters: 
+      - name : id
+        in : path
+        description: id data yang akan diperbarui
+        required: true
+        schema:
+            type: integer
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - name
+              - id
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: team 3
+                id:
+                  type: integer
+                  format: int32
+                  example: 4
+        required: false
+      responses:
+        '200':
+          description: Berhasil memperbarui data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '502':
+          description: Gagal memperbarui data
+      deprecated: false
+    delete:
+      tags:
+      - Category
+      summary: delete categories by id
+      operationId: deletecategoriesbyid
+      parameters: 
+      - name : id
+        in : path
+        description: id data yang akan dihapus
+        required: true
+        schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Data berhasil dihapus'
+        '404':
+          description: 'Periksa id kembali'
+      deprecated: false
+  /tasks:
+    get:
+      tags:
+      - Tasks
+      summary: get all tasks
+      operationId: getalltasks
+      parameters: []
+      responses:
+        '200':
+          description: 'Berhasil menampilkan data tasks'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tasks'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Tasks'
+        '404':
+          description: Data tidak ditemukan
+      deprecated: false
+    post:
+      tags:
+      - Tasks
+      summary: post tasks
+      operationId: posttasks
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - category_id
+              - title
+              - description
+              - start_date
+              - finish_date
+              - status
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  format: int32
+                  example: 3
+                title:
+                  type: string
+                  example: kerja bakti
+                description:
+                  type: string
+                  example: rt
+                start_date:
+                  type: string
+                  example: 2022-10-31
+                finish_date:
+                  type: string
+                  example: 2022-11-02
+                status:
+                  type: string
+                  example: New
+        required: false
+      responses:
+        '200':
+          description: Berhasil menambahkan data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tasks'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Tasks'
+        '502':
+          description: Gagal menambahkan data 
+      deprecated: false
+  /tasks/{id}:  
+    put:
+      tags:
+      - Tasks
+      summary: put tasks
+      operationId: puttasks
+      parameters: 
+      - name : id
+        in : path
+        description: id data yang akan diperbarui
+        required: true
+        schema:
+            type: integer
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - category_id
+              - title
+              - description
+              - start_date
+              - finish_date
+              - status
+              - id
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  format: int32
+                  example: 3
+                title:
+                  type: string
+                  example: bersepeda
+                description:
+                  type: string
+                  example: kuliah
+                start_date:
+                  type: string
+                  example: 2022-11-01
+                finish_date:
+                  type: string
+                  example: 2022-11-02
+                status:
+                  type: string
+                  example: New
+                id:
+                  type: integer
+                  format: int32
+                  example: 10
+        required: false
+      responses:
+        '200':
+          description: Berhasil memperbarui data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tasks'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Tasks'
+        '502':
+          description: Gagal memperbarui data
+      deprecated: false
+    delete:
+      tags:
+      - Tasks
+      summary: delete tasks by id
+      operationId: deletetasksbyid
+      parameters:
+      - name : id
+        in : path
+        description: id data yang akan dihapus
+        required: true
+        schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Berhasil menghapus data'
+        '404':
+          description: 'Silahkan periksa id kembali'
+      deprecated: false
+tags:
+- name: Category
+  description: Berisi tentang data kategori tasks (task_categories)
+- name: Tasks
+  description: Berisi tentang data tasks yang tersimpan (tasks)
+
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 2
+        name:
+          type: string
+          example: Group
+      xml:
+        name: category
+    Tasks:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 5
+        category_id:
+          $ref: '#/components/schemas/Category'
+        title:
+          type: string
+          example: kerja bakti
+        description:
+          type: string
+          example: warga rt
+        start_date:
+          type: string
+          example: 2022-10-10
+        finish_date:
+          type: string
+          example: 2022-11-11
+        status:
+          type: string
+          description: status tasks
+          enum:
+            - New
+            - On Progress
+            - Finish

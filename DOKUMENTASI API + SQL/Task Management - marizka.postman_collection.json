@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "b0397a4c-76db-41d1-b4ce-a72c2d6ffea8",
+		"name": "Task Management - marizka",
+		"description": "Berisi contoh dokumentasi API task management.\n\nOleh : Marizka Maulidina - Full Stack Web Development 1\n\nStudi Independen Bersertifikat\n\nPT. Arkatama Multi Solusindo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24150581"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "get all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/category",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get categories by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/category?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "team 7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/category",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put categories by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "team 3",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/category",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete categories by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/category",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Berisi tentang data kategori tasks (task_categories)"
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "get all tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tasks by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/tasks?id=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post tasks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "kerja bakti",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "rt",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2022-10-31",
+									"type": "text"
+								},
+								{
+									"key": "finish_date",
+									"value": "2022-11-02",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "New",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post tasks Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "bersepeda",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "kuliah",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2022-11-01",
+									"type": "text"
+								},
+								{
+									"key": "finish_date",
+									"value": "2022-11-02",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "New",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete tasks",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/taskmanagement/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"taskmanagement",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Berisi tentang data tasks yang tersimpan (tasks)"
+		}
+	]
+}
